@@ -1,7 +1,7 @@
 # 2017.11.06
 # Team member : Kim Sungsik, Kim Sujin, Kim gyury
 # Purpose : modules for assignment 4
-# To do : go, stop, swing turn, 5-channels tracker sensor, ultra sensor, setup
+# To do : go, stop, swing turn, setup
 
 import RPi.GPIO as GPIO
 
