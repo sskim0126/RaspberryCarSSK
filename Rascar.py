@@ -51,18 +51,65 @@ class setup:
         else:
             print('Config Error')
 
+
+class goModule:
     def go_forward_any(self, speed):
         while True:
             GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
             GPIO.output(self.MotorRight_PWM, GPIO.HIGH)
             self.leftmotor(self.forward0)
+            self.LeftPwm.ChangeDutyCycle(speed)
             self.rightmotor(self.forward0)
+            self.RightPwm.ChangeDutyCycle(speed)
 
-class goModule:
-    pass
+    def go_backward_any(self, speed):
+        while True:
+            GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
+            GPIO.output(self.MotorRight_PWM, GPIO.HIGH)
+            self.leftmotor(self.backward0)
+            self.LeftPwm.ChangeDutyCycle(speed)
+            self.rightmotor(self.backward0)
+            self.RightPwm.ChangeDutyCycle(speed)
+
+    def go_forward(self, speed, running_time):
+        GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
+        GPIO.output(self.MotorRight_PWM, GPIO.HIGH)
+        self.leftmotor(self.forward0)
+        self.LeftPwm.ChangeDutyCycle(0.8 * speed)
+        self.rightmotor(self.forward0)
+        self.RightPwm.ChangeDutyCycle(speed)
+        sleep(running_time)
+
+    def go_backward(self, speed, running_time):
+        GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
+        GPIO.output(self.MotorRight_PWM, GPIO.HIGH)
+        self.leftmotor(self.backward0)
+        self.LeftPwm.ChangeDutyCycle(speed)
+        self.rightmotor(self.backward0)
+        self.RightPwm.ChangeDutyCycle(speed)
+        sleep(running_time)
+
+    def stop(self):
+        GPIO.output(self.MotorLeft_PWM, GPIO.LOW)
+        GPIO.output(self.MotorRight_PWM, GPIO.LOW)
+        self.LeftPwm.ChangeDutyCycle(0)
+        self.RightPwm.ChangeDutyCycle(0)
+
+    def pwm_setup(self):
+        self.LeftPwm.start(0)
+        self.RightPwm.start(0)
+
+    def pwm_low(self):
+        GPIO.output(self.MotorLeft_PWM, GPIO.LOW)
+        GPIO.output(self.MotorRight_PWM, GPIO.LOW)
+        self.LeftPwm.ChangeDutyCycle(0)
+        self.RightPwm.ChangeDutyCycle(0)
+        GPIO.cleanup()
+
 
 class trackingSensor:
     pass
+
 
 class ultarSensor:
     pass
