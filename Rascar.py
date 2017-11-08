@@ -105,11 +105,3 @@ class goModule:
         self.LeftPwm.ChangeDutyCycle(0)
         self.RightPwm.ChangeDutyCycle(0)
         GPIO.cleanup()
-
-
-class trackingSensor:
-    pass
-
-
-class ultarSensor:
-    pass
