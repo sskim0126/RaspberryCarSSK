@@ -1,5 +1,5 @@
 # 2017.11.06
-# Team member : Kim Sungsik, Kim Sujin, Kim gyury
+# Team member : Kim Sungsik, Kim Sujin, Kim Gyuri
 # Purpose : modules for assignment 4
 # To do : go, stop, swing turn, setup
 
