@@ -22,8 +22,8 @@ class trackingSensor:
     def get_isLine(self):
         # 0 : black line
         # 1 : whilt ground
-        return [str(GPIO.input(self.leftmostled)),
-                str(GPIO.input(self.leftlessled)),
-                str(GPIO.input(self.centerled)),
-                str(GPIO.input(self.rightlessled)),
-                str(GPIO.input(self.rightmostled))]
+        return [GPIO.input(self.leftmostled),
+                GPIO.input(self.leftlessled),
+                GPIO.input(self.centerled),
+                GPIO.input(self.rightlessled),
+                GPIO.input(self.rightmostled)]
