@@ -31,6 +31,28 @@ class setup:
         self.MotorRight_B = 13
         self.MotorRight_PWM = 37
 
+        GPIO.setup(self.MotorLeft_A, GPIO.OUT)
+        GPIO.setup(self.MotorLeft_B, GPIO.OUT)
+        GPIO.setup(self.MotorLeft_PWM, GPIO.OUT)
+
+        GPIO.setup(self.MotorRight_A, GPIO.OUT)
+        GPIO.setup(self.MotorRight_B, GPIO.OUT)
+        GPIO.setup(self.MotorRight_PWM, GPIO.OUT)
+
+        self.LeftPwm = GPIO.PWM(self.MotorLeft_PWM, 100)
+        self.RightPwm = GPIO.PWM(self.MotorRight_PWM, 100)
+
+    def pwm_setup(self):
+        self.LeftPwm.start(0)
+        self.RightPwm.start(0)
+
+    def pwm_low(self):
+        GPIO.output(self.MotorLeft_PWM, GPIO.LOW)
+        GPIO.output(self.MotorRight_PWM, GPIO.LOW)
+        self.LeftPwm.ChangeDutyCycle(0)
+        self.RightPwm.ChangeDutyCycle(0)
+        GPIO.cleanup()
+
     def leftmotor(self, x):
         if x == True:
             GPIO.output(self.MotorLeft_A, GPIO.HIGH)
