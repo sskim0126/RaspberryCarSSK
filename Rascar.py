@@ -125,6 +125,22 @@ class turnModule:
         self.RightPwm.ChangeDutyCycle(speed)
         self.time.sleep(running_time)
 
+    def left_swing_turn(self, speed, running_time):
+        GPIO.output(self.MotorLeft_PWM, GPIO.LOW)
+        self.rightmotor(self.forward0)
+        GPIO.output(self.MotorRight_PWM, GPIO.HIGH)
+        self.LeftPwm.ChangeDutyCycle(0)
+        self.RightPwm.ChangeDutyCycle(speed)
+        sleep(running_time)
+
+    def right_swing_turn(self, speed, running_time):
+        self.leftmotor(self.forward0)
+        GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
+        GPIO.output(self.MotorRight_PWM, GPIO.LOW)
+        self.LeftPwm.ChangeDutyCycle(speed)
+        self.RightPwm.ChangeDutyCycle(0)
+        sleep(running_time)
+
     def curve_turn(self, left_speed, right_speed, running_time):
         self.leftmotor(self.forward0)
         GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
