@@ -1,4 +1,4 @@
-# 2017.11.06
+# 2017.11.12
 # Team member : Kim Sungsik, Kim Sujin, Kim Gyuri
 # Purpose : 5-way tracking sensor module for assignment 4
 # To do : 5-way tracking sensor module
@@ -19,7 +19,7 @@ class trackingSensor:
         GPIO.setup(self.rightlessled, GPIO.IN)
         GPIO.setup(self.rightmostled, GPIO.IN)
 
-    def get_isLine(self):
+    def get_is_line(self):
         # 0 : black line
         # 1 : whilt ground
         return [GPIO.input(self.leftmostled),

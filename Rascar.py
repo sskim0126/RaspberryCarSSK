@@ -1,4 +1,4 @@
-# 2017.11.06
+# 2017.11.12
 # Team member : Kim Sungsik, Kim Sujin, Kim Gyuri
 # Purpose : modules for assignment 4
 # To do : go, stop, swing turn, setup
@@ -105,3 +105,31 @@ class goModule:
         self.LeftPwm.ChangeDutyCycle(0)
         self.RightPwm.ChangeDutyCycle(0)
         GPIO.cleanup()
+
+class turnModule:
+    def left_point_turn(self, speed, running_time):
+        self.leftmotor(self.backward0)
+        GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
+        self.rightmotor(self.forward0)
+        GPIO.output(self.MotorRight_PWM, GPIO.HIGH)
+        self.LeftPwm.ChangeDutyCycle(speed)
+        self.RightPwm.ChangeDutyCycle(speed)
+        sleep(running_time)
+
+    def right_point_turn(self, speed, running_time):
+        self.leftmotor(self.forward0)
+        GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
+        self.rightmotor(self.backward0)
+        GPIO.output(self.MotorRight_PWM, GPIO.HIGH)
+        self.LeftPwm.ChangeDutyCycle(speed)
+        self.RightPwm.ChangeDutyCycle(speed)
+        self.time.sleep(running_time)
+
+    def curve_turn(self, left_speed, right_speed, running_time):
+        self.leftmotor(self.forward0)
+        GPIO.output(self.MotorLeft_PWM, GPIO.HIGH)
+        self.rightmotor(self.backward0)
+        GPIO.output(self.MotorRight_PWM, GPIO.HIGH)
+        self.LeftPwm.ChangeDutyCycle(left_speed)
+        self.RightPwm.ChangeDutyCycle(right_speed)
+        self.time.sleep(running_time)
