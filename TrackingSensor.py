@@ -17,6 +17,7 @@ GPIO.setup(centerled, GPIO.IN)
 GPIO.setup(rightlessled, GPIO.IN)
 GPIO.setup(rightmostled, GPIO.IN)
 
+
 def get_is_line():
     # 0 : black line
     # 1 : whilt ground
@@ -25,3 +26,23 @@ def get_is_line():
             GPIO.input(centerled),
             GPIO.input(rightlessled),
             GPIO.input(rightmostled)]
+
+
+def direction():
+    left_num = 0
+    right_num = 0
+    if get_is_line[0] == 0:
+        left_num += 1
+    if get_is_line[1] == 0:
+        left_num += 1
+    if get_is_line[3] == 0:
+        right_num += 1
+    if get_is_line[4] == 0:
+        right_num += 1
+
+    if left_num > right_num:
+        return "L"
+    elif left_num < right_num:
+        return "R"
+    else:
+        return "F"

@@ -18,12 +18,19 @@ if __name__ == "__main__":
                 is_line = get_is_line()
                 print(is_line)
 
-                if is_line[1] == 1 and is_line[3] == 1:
+                if direction() == 'F':
                     go_forward_any(50)
-                elif is_line[1] == 0:
+                elif direction() == 'L':
                     curve_turn(30, 50)
-                elif is_line[3] == 0:
+                elif direction() == 'R':
                     curve_turn(50, 30)
+
+                # if is_line[1] == 1 and is_line[3] == 1:
+                #     go_forward_any(50)
+                # elif is_line[1] == 0:
+                #     curve_turn(30, 50)
+                # elif is_line[3] == 0:
+                #     curve_turn(50, 30)
             else:
                 stop()
 
