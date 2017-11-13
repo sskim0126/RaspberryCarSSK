@@ -5,25 +5,23 @@
 
 import RPi.GPIO as GPIO
 
-class trackingSensor:
-    def set_tracking_mode(self):
-        self.leftmostled = 16
-        self.leftlessled = 18
-        self.centerled = 22
-        self.rightlessled = 40
-        self.rightmostled = 32
+leftmostled = 16
+leftlessled = 18
+centerled = 22
+rightlessled = 40
+rightmostled = 32
 
-        GPIO.setup(self.leftmostled, GPIO.IN)
-        GPIO.setup(self.leftlessled, GPIO.IN)
-        GPIO.setup(self.centerled, GPIO.IN)
-        GPIO.setup(self.rightlessled, GPIO.IN)
-        GPIO.setup(self.rightmostled, GPIO.IN)
+GPIO.setup(leftmostled, GPIO.IN)
+GPIO.setup(leftlessled, GPIO.IN)
+GPIO.setup(centerled, GPIO.IN)
+GPIO.setup(rightlessled, GPIO.IN)
+GPIO.setup(rightmostled, GPIO.IN)
 
-    def get_is_line(self):
-        # 0 : black line
-        # 1 : whilt ground
-        return [GPIO.input(self.leftmostled),
-                GPIO.input(self.leftlessled),
-                GPIO.input(self.centerled),
-                GPIO.input(self.rightlessled),
-                GPIO.input(self.rightmostled)]
+def get_is_line(self):
+    # 0 : black line
+    # 1 : whilt ground
+    return [GPIO.input(leftmostled),
+            GPIO.input(leftlessled),
+            GPIO.input(centerled),
+            GPIO.input(rightlessled),
+            GPIO.input(rightmostled)]
