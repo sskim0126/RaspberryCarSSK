@@ -14,8 +14,10 @@ if __name__ == "__main__":
 
         while True:
             distance = get_distance()
+            print(distance)
             if distance > 17:
                 is_line = get_is_line()
+                print(is_line)
 
                 if is_line[0] == 1 and is_line[4] == 1:
                     go_forward_any(50)
