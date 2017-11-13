@@ -17,7 +17,7 @@ GPIO.setup(centerled, GPIO.IN)
 GPIO.setup(rightlessled, GPIO.IN)
 GPIO.setup(rightmostled, GPIO.IN)
 
-def get_is_line(self):
+def get_is_line():
     # 0 : black line
     # 1 : whilt ground
     return [GPIO.input(leftmostled),
