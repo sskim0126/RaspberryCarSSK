@@ -13,8 +13,12 @@ if __name__ == "__main__":
     obstacle = 1
     try:
         while True:
-            distance = get_distance()
-            print(distance)
+            before_dis = -1
+            while True:
+                distance = get_distance()
+                print(distance)
+                if distance != before_dis:
+                    break
             if distance > 17:
                 is_line = get_is_line()
                 print(is_line)
