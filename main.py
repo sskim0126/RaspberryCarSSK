@@ -24,7 +24,7 @@ if __name__ == "__main__":
                 print(is_line)
                 if is_line == [0, 0, 0, 0, 0]:
                     stop()
-                elif is_line == [1,1,0,1,1]:
+                elif is_line == [1, 1, 0, 1, 1]:
                     go_forward_any(5)
                 elif is_line == [1,1,1,1,1]:
                     left_swing_turn(40, 0.05)
@@ -44,49 +44,49 @@ if __name__ == "__main__":
                 stop()
                 sleep(1)
                 if obstacle == 1:
-                    right_point_turn(50, 0.5)
+                    right_point_turn(40, 0.5)
                     stop()
                     sleep(1)
-                    go_forward(50, 0.4)
+                    go_forward(40, 0.4)
                     stop()
                     sleep(1)
-                    left_point_turn(50, 0.5)
+                    left_point_turn(40, 0.5)
                     stop()
                     sleep(1)
-                    go_forward(50, 1.2)
+                    go_forward(40, 1.2)
                     stop()
                     sleep(1)
-                    left_point_turn(50, 0.5)
+                    left_point_turn(40, 0.5)
                     stop()
                     sleep(1)
                     obstacle += 1
                     while True:
                         is_line = get_is_line()
                         if is_line == [1, 1, 1, 1, 1]:
-                            go_forward_any(1)
+                            go_forward(20, 0.2)
                         else:
                             break
                 elif obstacle == 2:
-                    right_point_turn(50, 0.5)
+                    right_point_turn(40, 0.5)
                     stop()
                     sleep(1)
-                    go_forward(50, 0.4)
+                    go_forward(40, 0.4)
                     stop()
                     sleep(1)
-                    left_point_turn(50, 0.5)
+                    left_point_turn(40, 0.5)
                     stop()
                     sleep(1)
-                    go_forward(50, 1.2)
+                    go_forward(40, 1.2)
                     stop()
                     sleep(1)
-                    left_point_turn(50, 0.5)
+                    left_point_turn(40, 0.5)
                     stop()
                     sleep(1)
                     obstacle += 1
                     while True:
                         is_line = get_is_line()
                         if is_line == [1, 1, 1, 1, 1]:
-                            go_forward_any(1)
+                            go_forward(20, 0.2)
                         else:
                             break
 
