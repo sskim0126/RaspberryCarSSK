@@ -68,34 +68,36 @@ def rightmotor(x):
 
 
 def go_forward_any(speed):
+    leftmotor(forward1)
+    rightmotor(forward0)
+    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
+    GPIO.output(MotorRight_PWM, GPIO.HIGH)
+    LeftPwm.ChangeDutyCycle(speed)
+    RightPwm.ChangeDutyCycle(speed)
+
+
+def go_backward_any(speed):
+    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
+    GPIO.output(MotorRight_PWM, GPIO.HIGH)
+    leftmotor(backward1)
+    LeftPwm.ChangeDutyCycle(speed)
+    rightmotor(backward0)
+    RightPwm.ChangeDutyCycle(speed)
+
+def go_forward(speed, running_time=-1):
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
     leftmotor(forward1)
     LeftPwm.ChangeDutyCycle(speed)
     rightmotor(forward0)
     RightPwm.ChangeDutyCycle(speed)
-
-def go_backward_any(speed):
-    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
-    GPIO.output(MotorRight_PWM, GPIO.HIGH)
-    leftmotor(backward0)
-    LeftPwm.ChangeDutyCycle(speed)
-    rightmotor(backward0)
-    RightPwm.ChangeDutyCycle(speed)
-
-def go_forward(speed, running_time):
-    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
-    GPIO.output(MotorRight_PWM, GPIO.HIGH)
-    leftmotor(forward0)
-    LeftPwm.ChangeDutyCycle(speed)
-    rightmotor(forward0)
-    RightPwm.ChangeDutyCycle(speed)
-    sleep(running_time)
+    if not running_time == -1:
+        sleep(running_time)
 
 def go_backward(speed, running_time):
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
-    leftmotor(backward0)
+    leftmotor(backward1)
     LeftPwm.ChangeDutyCycle(speed)
     rightmotor(backward0)
     RightPwm.ChangeDutyCycle(speed)
@@ -119,7 +121,7 @@ def pwm_low():
     GPIO.cleanup()
 
 def left_point_turn(speed, running_time):
-    leftmotor(backward0)
+    leftmotor(backward1)
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
     rightmotor(forward0)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
@@ -128,7 +130,7 @@ def left_point_turn(speed, running_time):
     sleep(running_time)
 
 def right_point_turn(speed, running_time):
-    leftmotor(forward0)
+    leftmotor(forward1)
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
     rightmotor(backward0)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
@@ -145,7 +147,7 @@ def left_swing_turn(speed, running_time):
     sleep(running_time)
 
 def right_swing_turn(speed, running_time):
-    leftmotor(forward0)
+    leftmotor(forward1)
     GPIO.output(MotorLeft_PWM, GPIO.HIGH)
     GPIO.output(MotorRight_PWM, GPIO.LOW)
     LeftPwm.ChangeDutyCycle(speed)
@@ -159,3 +161,4 @@ def curve_turn(left_speed, right_speed):
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
     LeftPwm.ChangeDutyCycle(left_speed)
     RightPwm.ChangeDutyCycle(right_speed)
+
