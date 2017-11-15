@@ -18,16 +18,8 @@ if __name__ == "__main__":
             if distance > 17:
                 is_line = get_is_line()
                 print(is_line)
-
-                # if direction() == 'F':
-                #     go_forward_any(40)
-                # elif direction() == 'L':
-                #     curve_turn(20, 40)
-                # elif direction() == 'R':
-                #     curve_turn(40, 20)
-                if is_line == [0, 0, 0, 0, 0] and obstacle == 3:
+                if is_line == [0, 0, 0, 0, 0]:
                     stop()
-                    break
                 elif is_line == [1,1,0,1,1]:
                     go_forward_any(5)
                 elif is_line == [1,1,1,1,1]:
