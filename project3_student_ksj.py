@@ -21,12 +21,12 @@ GPIO.setwarnings(False)
 # =======================================================================
 # import getDistance() method in the ultraModule
 # =======================================================================
-from ultraModule import getDistance
+from ultraModule_ksj import getDistance
 
 # =======================================================================
 # import TurnModule() method
 # =======================================================================
-from TurnModule import *
+from TurnModule_ksj import *
 
 
 # =======================================================================
@@ -41,7 +41,7 @@ from TurnModule import *
 # import go_forward_any(), go_backward_any(), stop(), LeftPwm(),
 # RightPwm(), pwm_setup(), and pwm_low() methods in the module of go_any
 # =======================================================================
-from go_any import *
+from go_any_ksj import *
 
 # implement rightmotor(x)  # student assignment (3)
 # implement go_forward_any(speed): # student assignment (4)
@@ -84,7 +84,7 @@ try:
 
         # when the distance is above the dis, moving object forwards
         if (distance > dis):
-            go_forward_any(50)
+            go_forward_any(20)
             print('obstacle=', obstacle)
 
         # when the distance is below the dis, moving object stops

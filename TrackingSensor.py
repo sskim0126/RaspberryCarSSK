@@ -27,23 +27,3 @@ def get_is_line():
             GPIO.input(rightlessled),
             GPIO.input(rightmostled)]
 
-
-def direction():
-    left_num = 0
-    right_num = 0
-    is_line = get_is_line()
-    if is_line[0] == 0:
-        left_num += 1
-    if is_line[1] == 0:
-        left_num += 1
-    if is_line[3] == 0:
-        right_num += 1
-    if is_line[4] == 0:
-        right_num += 1
-
-    if left_num > right_num:
-        return "L"
-    elif left_num < right_num:
-        return "R"
-    else:
-        return "F"

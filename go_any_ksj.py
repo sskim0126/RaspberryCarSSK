@@ -143,7 +143,7 @@ def go_forward_any(speed):
 
     # set the right motor to go forward
     # rightmotor(forward0)
-    rightmotor(forward1)
+    rightmotor(forward0)
     # GPIO.output(MotorRight_A,GPIO.LOW)
     # GPIO.output(MotorRight_B,GPIO.HIGH)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
@@ -170,7 +170,7 @@ def go_backward_any(speed):
 
     # set the right motor to go backward
     # rightmotor(backward0)
-    rightmotor(backward1)
+    rightmotor(backward0)
     # GPIO.output(MotorRight_A,GPIO.LOW)
     # GPIO.output(MotorRight_B,GPIO.HIGH)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
@@ -196,7 +196,7 @@ def go_forward(speed, running_time):
 
     # set the right motor to go forward
     # rightmotor(forward0)
-    rightmotor(forward1)
+    rightmotor(forward0)
     # GPIO.output(MotorRight_A,GPIO.LOW)
     # GPIO.output(MotorRight_B,GPIO.HIGH)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
@@ -225,7 +225,7 @@ def go_backward(speed, running_time):
 
     # set the right motor to go backward
     # rightmotor(backward0)
-    rightmotor(backward1)
+    rightmotor(backward0)
     # GPIO.output(MotorRight_A,GPIO.LOW)
     # GPIO.output(MotorRight_B,GPIO.HIGH)
     GPIO.output(MotorRight_PWM, GPIO.HIGH)
