@@ -22,22 +22,34 @@ if __name__ == "__main__":
                 print(is_line)
                 if is_line == [0, 0, 0, 0, 0]:
                     stop()
-                elif is_line == [1,1,0,1,1]:
-                    go_forward_any(40)
-                elif is_line == [1,1,1,1,1]:
-                    leftSwingTurn(40, 0.05)
-                elif is_line[1] == 0 and is_line[0] == 1:
-                    curve_turn(35, 40)
-                elif is_line[1] == 0 and is_line[0] == 0:
+                elif is_line == [1, 1, 1, 1, 1]:
+                    leftSwingTurn(30, 0.05)
+                elif is_line == [1, 0, 1, 1, 1] or is_line == [1, 0, 0, 1, 1]:
+                    curve_turn(25, 40)
+                elif is_line == [0, 0, 1, 1, 1] or is_line == [0, 0, 0, 1, 1]:
                     curve_turn(20, 40)
-                elif is_line[1] == 1 and is_line[0] == 0:
+                elif is_line == [0, 1, 1, 1, 1]:
                     curve_turn(10, 40)
-                elif is_line[3] == 0 and is_line[4] == 1:
-                    curve_turn(40, 35)
-                elif is_line[3] == 0 and is_line[4] == 0:
+                elif is_line == [1, 1, 1, 0, 1] or is_line == [1, 1, 0, 0, 1]:
+                    curve_turn(40, 25)
+                elif is_line == [1, 1, 1, 0, 0] or is_line == [1, 1, 0, 0, 0]:
                     curve_turn(40, 20)
-                elif is_line[3] == 1 and is_line[4] == 0:
+                elif is_line == [1, 1, 1, 1, 0]:
                     curve_turn(40, 10)
+                # elif is_line[1] == 0 and is_line[0] == 1:
+                #     curve_turn(35, 40)
+                # elif is_line[1] == 0 and is_line[0] == 0:
+                #     curve_turn(20, 40)
+                # elif is_line[1] == 1 and is_line[0] == 0:
+                #     curve_turn(10, 40)
+                # elif is_line[3] == 0 and is_line[4] == 1:
+                #     curve_turn(40, 35)
+                # elif is_line[3] == 0 and is_line[4] == 0:
+                #     curve_turn(40, 20)
+                # elif is_line[3] == 1 and is_line[4] == 0:
+                #     curve_turn(40, 10)
+                else:
+                    go_forward_any(40)
             else:
                 stop()
                 sleep(1)
