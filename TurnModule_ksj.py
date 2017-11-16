@@ -207,6 +207,14 @@ def leftPointTurn(speed, running_time):  # student assignment (2)
     LeftPwm.ChangeDutyCycle(speed)
     # set the running time of the right motor to go fowrard
     time.sleep(running_time)
+	
+def curve_turn(left_speed, right_speed):
+    leftmotor(forward1)
+    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
+    rightmotor(forward0)
+    GPIO.output(MotorRight_PWM, GPIO.HIGH)
+    LeftPwm.ChangeDutyCycle(left_speed)
+    RightPwm.ChangeDutyCycle(right_speed)
 
 
 
