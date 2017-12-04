@@ -21,6 +21,7 @@ if __name__ == "__main__":
                 stop(0.3)
                 rightPointTurn(40, 0.3)
                 while is_line[2] != 0:
+                    is_line = get_is_line()
                     rightPointTurn(40, 0.01)
             else:
                 if is_line[1] == 0:
