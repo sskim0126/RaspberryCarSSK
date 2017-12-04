@@ -22,7 +22,7 @@ if __name__ == "__main__":
                 rightPointTurn(40, 0.3)
                 while is_line[2] != 0:
                     is_line = get_is_line()
-                    rightPointTurn(40, 0.01)
+                    rightPointTurn(40, 0.1)
             else:
                 if is_line[1] == 0:
                     go_forward(40, 0.3)
@@ -31,7 +31,7 @@ if __name__ == "__main__":
                         leftPointTurn(40, 0.3)
                         while is_line[2] != 0:
                             is_line = get_is_line()
-                            leftPointTurn(40, 0.01)
+                            leftPointTurn(40, 0.1)
                 elif is_line == [1, 1, 1, 1, 1]:
                     stop(0.3)
                     go_forward(40, 0.2)
