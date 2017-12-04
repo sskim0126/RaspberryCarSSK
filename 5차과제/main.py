@@ -30,6 +30,7 @@ if __name__ == "__main__":
                         stop(0.3)
                         leftPointTurn(40, 0.3)
                         while is_line[2] != 0:
+                            is_line = get_is_line()
                             leftPointTurn(40, 0.01)
                 elif is_line == [1, 1, 1, 1, 1]:
                     stop(0.3)
