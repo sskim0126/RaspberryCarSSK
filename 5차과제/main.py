@@ -4,9 +4,8 @@
 # To do : line tracing, avoid obstacle
 
 import RPi.GPIO as GPIO
-from TurnModule_ksj import *
 from TrackingSensor import *
-from go_any_ksj import *
+from Rascar import *
 
 if __name__ == "__main__":
     pwm_setup()
@@ -15,46 +14,47 @@ if __name__ == "__main__":
         while True:
             is_line = get_is_line()
             print(is_line)
+            # 우회전 코드
             if is_line[4] == 0:
                 stop()
                 sleep(0.3)
-                go_forward(40, 0.3)
+                go_forward(40, 0.5)
                 stop()
                 sleep(0.3)
-                rightPointTurn(40, 0.3)
+                right_point_turn(40, 0.3)
                 while is_line[2] != 0:
                     is_line = get_is_line()
-                    rightPointTurn(40, 0.01)
+                    right_point_turn(40, 0.01)
             else:
                 if is_line[1] == 0:
-                    go_forward(40, 0.3)
+                    go_forward(40, 0.5)
+                    is_line = get_is_line()
+                    # 좌회전 코드
                     if is_line == [1, 1, 1, 1, 1]:
                         stop()
                         sleep(0.3)
-                        leftPointTurn(40, 0.3)
+                        left_point_turn(40, 0.3)
                         while is_line[2] != 0:
-                            leftPointTurn(40, 0.01)
+                            is_line = get_is_line()
+                            left_point_turn(40, 0.01)
+                # 유턴 코드
                 elif is_line == [1, 1, 1, 1, 1]:
                     stop()
                     sleep(0.3)
                     go_forward(40, 0.2)
                     while is_line[2] != 0:
-                        rightPointTurn(40, 0.01)
-                elif is_line == [1, 0, 1, 1, 1]:
-                    curve_turn(15, 30)
-                    sleep(0.05)
+                        right_point_turn(40, 0.01)
+                # line tracing
+                if is_line == [1, 0, 1, 1, 1]:
+                    curve_turn(15, 40)
                 elif is_line == [1, 0, 0, 1, 1]:
-                    curve_turn(20, 30)
-                    sleep(0.05)
+                    curve_turn(20, 40)
                 elif is_line == [1, 1, 1, 0, 1]:
-                    curve_turn(30, 15)
-                    sleep(0.05)
+                    curve_turn(40, 15)
                 elif is_line == [1, 1, 0, 0, 1]:
-                    curve_turn(30, 20)
-                    sleep(0.05)
+                    curve_turn(40, 20)
                 else:
                     go_forward_any(40)
-                    sleep(0.05)
 
 
 

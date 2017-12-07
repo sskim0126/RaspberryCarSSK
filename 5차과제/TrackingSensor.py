@@ -11,6 +11,9 @@ centerled = 22
 rightlessled = 40
 rightmostled = 32
 
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+
 GPIO.setup(leftmostled, GPIO.IN)
 GPIO.setup(leftlessled, GPIO.IN)
 GPIO.setup(centerled, GPIO.IN)
