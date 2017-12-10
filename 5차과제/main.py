@@ -1,4 +1,4 @@
-# 2017.11.06
+# 2017.12.08
 # Team member : Kim Sungsik, Kim Sujin, Kim Gyuri
 # Purpose : main code for assignment
 # To do : line tracing, avoid obstacle
