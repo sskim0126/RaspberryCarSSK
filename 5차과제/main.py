@@ -28,10 +28,10 @@ if __name__ == "__main__":
                     stop()
                     sleep(0.1)
                     is_line = get_is_line()
-            elif is_line[1] == 0:
+            elif is_line[0] == 0:
                 go_forward(40, 0.3)
                 is_line = get_is_line()
-                # 좌회전 코드
+            # 좌회전 코드
                 if is_line == [1, 1, 1, 1, 1]:
                     stop()
                     sleep(0.5)
